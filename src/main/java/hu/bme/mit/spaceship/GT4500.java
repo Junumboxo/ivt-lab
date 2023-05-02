@@ -1,5 +1,7 @@
 package hu.bme.mit.spaceship;
 
+import java.security.NoSuchAlgorithmException;
+
 /**
 * A simple spaceship with two proton torpedo stores and four lasers
 */
@@ -38,6 +40,7 @@ public class GT4500 implements SpaceShip {
 
     boolean firingSuccess = false;
 
+    try {
     switch (firingMode) {
       case SINGLE:
         if (wasPrimaryFiredLast) {
@@ -83,8 +86,9 @@ public class GT4500 implements SpaceShip {
         }
         break;
     }
-
+    } catch (NoSuchAlgorithmException e) {
+      e.printStackTrace();
+    } 
     return firingSuccess;
   }
-
 }
